@@ -1,0 +1,17 @@
+<% if notice %>
+<p id = "notice"><%= notice %></p>
+<% end %>
+
+<h1> Your Pragmatic Catalog</h1>
+
+<% @products.each do |product| %>
+  <div class = "entry" %>
+    <%= image_tag(product.image_url) %> <!-- image_tag is a helper method - it generates an HTML <img> tag using its arugment as the image source -->
+    <h3> <%= product.title %> </h3>
+    <%= sanitize(product.description) %>
+    <!-- sanitize allows HTML stylings - it adds a security hole (see footnote on pg. 94 of Agile Web Dev) --> 
+    <div class = "price_line">
+      <span class = "price"><%= number_to_currency(product.price) %></span>
+    </div>
+  </div>
+<% end %>
