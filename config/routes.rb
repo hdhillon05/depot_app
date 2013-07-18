@@ -1,7 +1,13 @@
 Depotv1::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+  # What resources :carts replaces:
+
+
   get "store/index"
   resources :products
-
+  #What resources :products replaces:
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

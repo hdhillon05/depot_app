@@ -14,6 +14,9 @@
         <!-- sanitize allows HTML stylings - it adds a security hole (see footnote on pg. 94 of Agile Web Dev) --> 
         <div class = "price_line">
           <span class = "price"><%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %> 
+              <!--button to is a post command - rails sends a default post request to the URL. line_items_path ==> routes to ==> line_items controller and to create method. BUT NOTE: if instead of button_to, used link_to - rails defaults to "get" request-->
+              <!--product_id: product ==> is a hash with key = product_id and value = product.  This is passed to the create method in the line_items controller so the two must match. -->
         </div>
       </div>
     <% end %>
